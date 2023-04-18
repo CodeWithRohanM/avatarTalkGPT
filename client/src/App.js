@@ -12,6 +12,8 @@ const App = () => {
   const [requestedPrompt, setRequestedPrompt] = useState("");
   const [loading, setLoading] = useState(".");
   const [showLoader, setShowLoader] = useState(true);
+  const [positionItem, setPositionItem] = useState(40);
+  let storeUserInput = "";
 
 
   const updateUserInput = (event) => {
@@ -24,12 +26,22 @@ const App = () => {
     try {
       event.preventDefault();
 
+      setPositionItem(10);
       setRequestedPrompt(userInput);
       setShowLoader(true);
 
-      setInterval(() => {
+      storeUserInput = userInput;
+
+      setUserInput("");
+
+
+      var getInterval = setInterval(() => {
         setLoading((loading) => loading.length === 4 ? "." : loading + ".");
-      }, 700);
+
+        return ()=>{
+          setLoading("");
+        }
+      }, 300);
 
       document.getElementById("staticPrompts").style.visibility = "hidden";
       document.getElementById("userPrompt").style.display = "block";
@@ -46,10 +58,9 @@ const App = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          questions: userInput,
+          questions: storeUserInput,
         })
       });
-      setUserInput("");
 
 
       const getReponse = await getData.json();
@@ -59,7 +70,8 @@ const App = () => {
       setTimeout(() => {
         setShowLoader(false);
         setShowOutput(getReponse);
-
+        clearInterval(getInterval);
+        storeUserInput = "";
       }, 300);
 
       console.log(getReponse);
@@ -87,9 +99,9 @@ const App = () => {
 
 
 
-      <section className="mainChatBox h-full flex-1 flex flex-col gap-y-20 items-center py-40 relative">
+      <section className={`mainChatBox h-full flex-1 flex flex-col gap-y-20 items-center py-${positionItem} relative`}>
 
-        <h1 className="text-gray-200 font-bold text-4xl">ChatGPT</h1>
+        <h1 className="text-gray-200 font-bold text-4xl" id="tagLine">ChatGPT</h1>
 
         <div className="flex flex-col gap-y-8 w-full hidden" id="userPrompt">
 
@@ -100,7 +112,7 @@ const App = () => {
 
           </div>
 
-          <div className="flex flex-row gap-x-6 bg-gray-600 w-full container mx-auto max-w-screen-lg items-center p-4 text-white rounded-b-md">
+          <div className="flex flex-row gap-x-6 bg-gray-600 w-full container mx-auto max-w-screen-lg items-center p-4 text-white rounded-b-md overflow-scroll h-fit">
             <img src="/Images/log.png" className="w-8 h-8" alt="user"></img>
 
             <h1>{showLoader ? loading : showOutput}</h1>
@@ -116,11 +128,12 @@ const App = () => {
               <h1 className="text-xl">Examples</h1>
             </div>
 
-            <button type="button" className="px-4 py-3 text-sm bg-white/5 rounded-md">"Explain Quantum Computing In Simple Terms"</button>
+            <button type="button" className="px-4 py-3 text-sm bg-white/5 rounded-md
+             hover:bg-black/20">"Explain Quantum Computing In Simple Terms"</button>
 
-            <button type="button" className="px-4 py-3 text-sm bg-white/5 rounded-md">"Got any creative ideas for a 10 year old’s birthday?" →</button>
+            <button type="button" className="px-4 py-3 text-sm bg-white/5 rounded-md hover:bg-black/20">"Got any creative ideas for a 10 year old’s birthday?" →</button>
 
-            <button type="button" className="px-4 py-3 text-sm bg-white/5 rounded-md">"How do I make an HTTP request in Javascript?" →</button>
+            <button type="button" className="px-4 py-3 text-sm bg-white/5 rounded-md hover:bg-black/20">"How do I make an HTTP request in Javascript?" →</button>
 
           </div>
 
@@ -131,7 +144,7 @@ const App = () => {
 
             </div>
 
-            <button type="button" className="px-4 py-3 text-sm bg-white/5 rounded-md">Remembers what user said earlier in the conversation</button>
+            <button type="button" className="px-4 py-3 text-sm bg-white/5 rounded-md hover:none">Remembers what user said earlier in the conversation</button>
 
             <button type="button" className="px-4 py-3 text-sm bg-white/5 rounded-md">Allows user to provide follow-up corrections</button>
 
