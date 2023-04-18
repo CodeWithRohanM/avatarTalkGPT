@@ -38,7 +38,7 @@ const App = () => {
       var getInterval = setInterval(() => {
         setLoading((loading) => loading.length === 4 ? "." : loading + ".");
 
-        return ()=>{
+        return () => {
           setLoading("");
         }
       }, 300);
@@ -52,29 +52,29 @@ const App = () => {
 
       setShowOutput("");
 
-      const getData = await fetch("http://localhost:8080", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          questions: storeUserInput,
-        })
-      });
+      // const getData = await fetch("http://localhost:8080", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     questions: storeUserInput,
+      //   })
+      // });
 
 
-      const getReponse = await getData.json();
+      // const getReponse = await getData.json();
 
       console.log("Getting response from Assistance..");
 
-      setTimeout(() => {
-        setShowLoader(false);
-        setShowOutput(getReponse);
-        clearInterval(getInterval);
-        storeUserInput = "";
-      }, 300);
+      // setTimeout(() => {
+      //   setShowLoader(false);
+      //   setShowOutput(getReponse);
+      //   clearInterval(getInterval);
+      //   storeUserInput = "";
+      // }, 300);
 
-      console.log(getReponse);
+      // console.log(getReponse);
 
 
     } catch (err) {
@@ -89,12 +89,42 @@ const App = () => {
   return <>
     <div className="flex flex-row w-screen h-screen">
 
-      <aside className="sideMenu h-full border-r border-white/5 p-2">
-        <div className="flex flex-row gap-x-6 border border-white/20 px-4 py-3 w-full hover:bg-white/5 hover:cursor-pointer transition ease-in-out duration-300 rounded-md shadow-inner items-center" 
+      <aside className="sideMenu h-full border-r border-white/5 p-2 flex flex-col justify-between">
+        <div className="flex flex-row gap-x-6 border border-white/20 px-4 py-3 w-full hover:bg-white/5 hover:cursor-pointer transition ease-in-out duration-300 rounded-md shadow-inner items-center"
         >
           <span className="text-xl">+</span>
           New Chat
         </div>
+
+        <div className="flex flex-col gap-y-2 w-full">
+
+          <div className="flex flex-row gap-x-6 w-full px-4 py-3 border border-white/10 hover:bg-white/5 hover:cursor-pointer transition ease-in-out duration-300 rounded-md shadow-inner items-center">
+            <img src="/Images/circular.png" className="w-5 h-5" alt="resetThread"></img>
+            <h1>Reset Thread</h1>
+          </div>
+
+          <div className="flex flex-row gap-x-6 w-full px-4 py-3 items-center border border-white/10 hover:cursor-pointer transition ease-in-out duration-300 hover:bg-white/5 rounded-md shadow-inner">
+            <img src="/Images/lightMode.png" className="w-5 h-5" alt="resetThread"></img>
+            <h1>Light Mode</h1>
+          </div>
+
+          <div className="flex flex-row gap-x-6 w-full px-4 py-3 items-center border border-white/10 hover:cursor-pointer transition ease-in-out duration-300 hover:bg-white/5 rounded-md shadow-inner">
+            <img src="/Images/discord.png" className="w-5 h-5" alt="resetThread"></img>
+            <h1>OpenAI Discord</h1>
+          </div>
+
+          <div className="flex flex-row gap-x-6 w-full px-4 py-3 items-center border border-white/10 shadow-inner rounded-md hover:cursor-pointer hover:bg-white/5 transition ease-in-out duration-300">
+            <img src="/Images/share.png" className="w-5 h-5" alt="resetThread"></img>
+            <h1>Learn More</h1>
+          </div>
+
+          <div className="flex flex-row gap-x-6 w-full px-4 py-3 items-center border border-white/10 hover:cursor-pointer hover:bg-white/5 transition ease-in-out duration-300 shadow-inner runded-md">
+            <img src="/Images/logout.png" className="w-5 h-5" alt="resetThread"></img>
+            <h1>LogOut</h1>
+          </div>
+
+        </div>
+
       </aside>
 
 
@@ -115,7 +145,7 @@ const App = () => {
           <div className="flex flex-row gap-x-6 bg-gray-600 w-full container mx-auto max-w-screen-lg items-center p-4 text-white rounded-b-md overflow-scroll h-fit">
             <img src="/Images/log.png" className="w-8 h-8" alt="user"></img>
 
-            <h1>{showLoader ? loading : showOutput}</h1>
+            <h1 className="leading-7">{showLoader ? loading : showOutput}</h1>
 
           </div>
         </div>
@@ -181,12 +211,12 @@ const App = () => {
             value={userInput}
             onChange={updateUserInput}></input>
 
-          <span className="hover:cursor-pointer" onClick={getAssistance}>↗️</span>
+          <span className="hover:cursor-pointer text-xl hover:bg-black/40 px-3 rounded-md" onClick={getAssistance}>↗️</span>
 
         </form>
 
         <div className="flex flex-col items-center justify-center w-full absolute bottom-4 px-2">
-          <h1 className=" ">Free Research Preview: ChatGPT is optimised for dialogue. Our goal is to make AI systems more natural to interact with, and your feeback will help us improve</h1>
+          <h1 className="text-md">Free Research Preview: ChatGPT is optimised for dialogue. Our goal is to make AI systems more natural to interact with, and your feeback will help us improve</h1>
           <h1> our systems and make them safer.</h1>
         </div>
 
