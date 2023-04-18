@@ -3,7 +3,7 @@
 }
 
 .sideMenu{
-  width: 240px;
+  width: 280px;
   background-color: #202123;
   color: white
 }
@@ -11,5 +11,9 @@
 .mainChatBox{
   background-color: #343541;
   color: gray
+}
+
+.inputBox{
+  background-color: #40414F;
 }
 

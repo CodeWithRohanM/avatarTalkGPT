@@ -1,17 +1,19 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-
+const dotenv = require("dotenv");
+dotenv.config();
 
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
+
 const {Configuration, OpenAIApi} = require("openai");
 
 const configuration = new Configuration({
-    apiKey: "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",
+    apiKey: process.env.REACT_APP_API_KEY,
 });
 
 const OpenAi = new OpenAIApi(configuration);

@@ -9,6 +9,9 @@ const App = () => {
 
   const [userInput, setUserInput] = useState("");
   const [showOutput, setShowOutput] = useState("");
+  const [requestedPrompt, setRequestedPrompt] = useState("");
+  const [loading, setLoading] = useState(".");
+  const [showLoader, setShowLoader] = useState(true);
 
 
   const updateUserInput = (event) => {
@@ -21,10 +24,19 @@ const App = () => {
     try {
       event.preventDefault();
 
+      setRequestedPrompt(userInput);
+      setShowLoader(true);
+
+      setInterval(() => {
+        setLoading((loading) => loading.length === 4 ? "." : loading + ".");
+      }, 700);
+
       document.getElementById("staticPrompts").style.visibility = "hidden";
       document.getElementById("userPrompt").style.display = "block";
 
-      window.alert(userInput);
+
+
+      // window.alert(userInput);
 
       setShowOutput("");
 
@@ -44,7 +56,11 @@ const App = () => {
 
       console.log("Getting response from Assistance..");
 
-      setShowOutput(getReponse);
+      setTimeout(() => {
+        setShowLoader(false);
+        setShowOutput(getReponse);
+
+      }, 300);
 
       console.log(getReponse);
 
@@ -61,9 +77,10 @@ const App = () => {
   return <>
     <div className="flex flex-row w-screen h-screen">
 
-      <aside className="sideMenu h-full border-r border-gray-400 p-2">
-        <div className="flex flex-row gap-x-6 border border-gray-500 px-4 py-2 w-full hover:opacity-75 hover:cursor-pointer transition ease-in-out duration-300">
-          <span>+</span>
+      <aside className="sideMenu h-full border-r border-white/5 p-2">
+        <div className="flex flex-row gap-x-6 border border-white/20 px-4 py-3 w-full hover:bg-white/5 hover:cursor-pointer transition ease-in-out duration-300 rounded-md shadow-inner items-center" 
+        >
+          <span className="text-xl">+</span>
           New Chat
         </div>
       </aside>
@@ -74,19 +91,19 @@ const App = () => {
 
         <h1 className="text-gray-200 font-bold text-4xl">ChatGPT</h1>
 
-        <div className="bg-yellow-300 flex flex-col gap-y-4 w-full hidden" id="userPrompt">
+        <div className="flex flex-col gap-y-8 w-full hidden" id="userPrompt">
 
-          <div className="flex flex-row gap-x-6 bg-gray-600 w-full container mx-auto max-w-screen-lg items-center p-2 text-white">
-            <img src="/Images/profile.png" className="w-12 h-12" alt="user"></img>
+          <div className="flex flex-row gap-x-6 bg-gray-600 w-full container mx-auto max-w-screen-lg items-center p-4 text-white rounded-t-md border-b border-white/10">
+            <img src="/Images/lightbulb.png" className="w-8 h-8" alt="user"></img>
 
-            <h1>User</h1>
+            <h1>{requestedPrompt}</h1>
 
           </div>
 
-          <div className="flex flex-row gap-x-6 bg-gray-600 w-full container mx-auto max-w-screen-lg items-center p-2 text-white">
-            <img src="/Images/profile.png" className="w-12 h-12" alt="user"></img>
+          <div className="flex flex-row gap-x-6 bg-gray-600 w-full container mx-auto max-w-screen-lg items-center p-4 text-white rounded-b-md">
+            <img src="/Images/log.png" className="w-8 h-8" alt="user"></img>
 
-            <h1>{showOutput}</h1>
+            <h1>{showLoader ? loading : showOutput}</h1>
 
           </div>
         </div>
@@ -94,7 +111,10 @@ const App = () => {
         <div className="flex flex-row gap-x-3 container mx-auto max-w-screen-md pb-20 text-white" id="staticPrompts">
 
           <div className="flex flex-col gap-y-4 w-1/3 items-center">
-            <h1>Examples</h1>
+            <div className="flex flex-col gap-y-2 items-center w-full">
+              <img src="/Images/sun.png" className="w-6 h-6" alt="examples"></img>
+              <h1 className="text-xl">Examples</h1>
+            </div>
 
             <button type="button" className="px-4 py-3 text-sm bg-white/5 rounded-md">"Explain Quantum Computing In Simple Terms"</button>
 
@@ -105,7 +125,11 @@ const App = () => {
           </div>
 
           <div className="flex flex-col gap-y-4 w-1/3 items-center">
-            <h1>Capabilities</h1>
+            <div className="flex flex-col gap-y-2 w-full items-center">
+              <img src="/Images/light-bolt.png" className="w-6 h-6" alt="capabilities"></img>
+              <h1 className="text-xl">Capabilities</h1>
+
+            </div>
 
             <button type="button" className="px-4 py-3 text-sm bg-white/5 rounded-md">Remembers what user said earlier in the conversation</button>
 
@@ -117,7 +141,11 @@ const App = () => {
           </div>
 
           <div className="flex flex-col gap-y-4 w-1/3 items-center">
-            <h1>Limitations</h1>
+            <div className="flex flex-col gap-y-2 w-full items-center">
+              <img src="/Images/alert.png" className="w-6 h-6" alt="limitations"></img>
+              <h1 className="text-xl">Limitations</h1>
+
+            </div>
 
             <button type="button" className="px-4 py-3 text-sm bg-white/5 rounded-md">May occasionally generate incorrect information</button>
 
@@ -131,11 +159,11 @@ const App = () => {
 
 
 
-        <form onSubmit={getAssistance} className="border-gray-400 flex container max-w-4xl border bg-gray-600 px-4 py-2 gap-x-3 absolute bottom-20">
+        <form onSubmit={getAssistance} className="inputBox flex container max-w-4xl px-4 py-1 gap-x-3 absolute bottom-20 shadow-xl focus:outline-none items-center rounded-md">
 
           <input
             type="text"
-            className="w-full text-white font-bold bg-transparent"
+            className="w-full text-white font-normal bg-transparent appearance-none focus:outline-none border-none py-2"
             placeholder="Send a Message.."
             value={userInput}
             onChange={updateUserInput}></input>
@@ -144,7 +172,7 @@ const App = () => {
 
         </form>
 
-        <div className="flex flex-col items-center justify-center w-full absolute bottom-4">
+        <div className="flex flex-col items-center justify-center w-full absolute bottom-4 px-2">
           <h1 className=" ">Free Research Preview: ChatGPT is optimised for dialogue. Our goal is to make AI systems more natural to interact with, and your feeback will help us improve</h1>
           <h1> our systems and make them safer.</h1>
         </div>
