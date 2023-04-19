@@ -68,10 +68,8 @@ app.post("/elonData", async (req, res) => {
 
 });
 
-app.post("/elonChat", async (req, res) => {
+app.post("/roleplayChat", async (req, res) => {
     try {
-
-        // console.log("Elon Chat..");
         const getUserChat = req.body.userChat;
 
         const getReponse = await OpenAi.createChatCompletion({

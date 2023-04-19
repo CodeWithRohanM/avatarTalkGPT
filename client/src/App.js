@@ -5,8 +5,8 @@ import TalkGPT from "./Components/TalkGPT";
 import AvatarGPT from "./Components/AvatarGPT";
 import Extensions from "./Components/Extensions";
 import { Routes, Route } from "react-router-dom";
-import ElonChat from "./Components/ElonChat";
-import JeffChat from "./Components/JeffChat";
+import PersonChat from "./Components/PersonChat";
+import PersonCategoryList from "./Components/PersonCategoryList";
 
 
 // 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
@@ -23,8 +23,8 @@ const App = () => {
         <Route exact path="/" element={<TalkGPT />}></Route>
         <Route exact path="/avatarGPT" element={<AvatarGPT />}></Route>
         <Route exact path="/extensions" element={<Extensions />}></Route>
-        <Route exact path="/avatarGPT/elon" element={<ElonChat />}></Route>
-        <Route exact path="/avatarGPT/jeff" element={<JeffChat/>}></Route>
+        <Route exact path="/avatarGPT/roleplay" element={<PersonChat />}></Route>
+        <Route exact path="/avatarGPT/category" element={<PersonCategoryList/>}></Route>
       </Routes>
 
     </div>

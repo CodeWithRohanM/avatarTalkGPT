@@ -1,7 +1,9 @@
 const initialState = {
     loaderStatus: false,
-    characterName: "Elon",
+    personName: "",
     staticChatResponse: "",
+    categoryName: "",
+    link: "",
 };
 
 const userReducer = (state = initialState, action) => {
@@ -18,6 +20,27 @@ const userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 staticChatResponse: action.payLoad,
+            };
+        }
+
+        case "GET_PERSON_NAME":{
+            return{
+                ...initialState,
+                personName: action.payLoad,
+            };
+        }
+
+        case "GET_CATEGORY":{
+            return {
+                ...initialState,
+                categoryName: action.payLoad,
+            };
+        }
+
+        case "GET_PERSON_URL":{
+            return {
+                ...initialState,
+                link: action.payLoad,
             };
         }
 

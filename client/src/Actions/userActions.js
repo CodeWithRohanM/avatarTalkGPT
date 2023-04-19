@@ -14,5 +14,26 @@ const getStaticChatResponse = (response) =>{
     }
 };
 
+const getPersonName = (name) =>{
+    return {
+        type: "GET_PERSON_NAME",
+        payLoad: name,
+    };
+};
 
-export { getLoaderStatus, getStaticChatResponse };
+const getCategory = (categoryName) =>{
+    return {
+        type: "GET_CATEGORY",
+        payLoad: categoryName,
+    };
+};
+
+const getPersonURL = (url) =>{
+    return {
+        type: "GET_PERSON_URL",
+        payLoad: url,
+    };
+};
+
+
+export { getLoaderStatus, getStaticChatResponse, getPersonName, getCategory, getPersonURL };
