@@ -7,6 +7,7 @@ const PersonChat = () => {
 
     const pName = useSelector((state) => state.userReducer.personName);
     const pURL = useSelector((state) => state.userReducer.link);
+    const tagLine = useSelector((state)=> state.userReducer.tagLine);
 
     const getPersonImage = pName.split(" ")[0];
 
@@ -123,7 +124,7 @@ const PersonChat = () => {
 
 
 
-            <section className={`mainAvatarGPTChatBox h-full flex-1 flex flex-col gap-y-3 items-center p-2 relative`}>
+            <section className={`mainAvatarGPTChatBox h-full flex-1 flex flex-col gap-y-3 items-center p-2 relative bg-gradient-to-b from-cyan-100 to-cyan-50`}>
 
                 <Header getBorderColor="border-gray-700" getTextColor="text-black" />
 
@@ -133,7 +134,7 @@ const PersonChat = () => {
 
                 <div className="flex w-full h-1/3 justify-center items-center relative">
                     <video className="object-cover w-full h-full" autoPlay muted>
-                        <source src="/Images/trip.mp4" type="video/mp4">
+                        <source src="/Images/explosion.mp4" type="video/mp4">
                         </source>
                         cbhekldjlsk
 
@@ -142,8 +143,8 @@ const PersonChat = () => {
                         <ReactPlayer url="https://www.youtube.com/watch?v=TRxf5hLZih4" width="100%" playing loop></ReactPlayer>
                     </div> */}
 
-                    <div className="flex flex-col gap-y-4 absolute bottom-0">
-                        <img src={`/Images/${getPersonImage}.png`} className="w-40 h-40 shadow-2xl rounded-full" alt="elon"></img>
+                    <div className="absolute top-1/5">
+                        <img src={`/Images/${getPersonImage}.png`} className="w-52 h-52 shadow-2xl rounded-full border-2 " alt="elon"></img>
                         {/* <h1 className="text-blue-900 font-bold text-4xl" id="tagLine">{pName}</h1> */}
                     </div>
                 </div>
@@ -154,11 +155,10 @@ const PersonChat = () => {
 
 
                 <div className="flex flex-row gap-x-6 w-full container mx-auto max-w-screen-lg
-                justify-center items-center p-2 border-b  border-black/10 text-black">
+                justify-center items-center p-2 border-b border-black/10 text-black/80">
                     <img src="/Images/lightbulb.png" className="w-8 h-8" alt="user"></img>
 
-                    {/* <h1>Hi, I am Elon. Lets have some chat. Ask me anything you want.</h1> */}
-                    <h1>{`Heyy, I am ${pName}. Lts have some fun chat..`}</h1>
+                    <h1 className="text-xl font-bold">{`Heyy, I am ${pName}. ${tagLine}`}</h1>
 
                 </div>
 
@@ -173,7 +173,7 @@ const PersonChat = () => {
                 </div> */}
 
 
-                <div className="flex flex-col w-full hidden h-full" id="elon_interaction">
+                <div className="flex flex-col w-full hidden h-full bg-black/10" id="elon_interaction">
                     <div className="flex flex-row gap-x-4 bg-gray-600 w-full container mx-auto max-w-screen-lg p-2 text-white overflow-scroll border-b border-white/20" id="elon_interaction">
                         <img src="/Images/shiba.jpeg" className="w-8 h-8 rounded-full" alt="user"></img>
 

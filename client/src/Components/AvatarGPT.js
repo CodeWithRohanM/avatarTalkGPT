@@ -75,7 +75,7 @@ const AvatarGPT = () => {
                         <h1>Business</h1>
                     </div></NavLink>
 
-                    <NavLink to="/avatarGPT/category"><div className="flex flex-row gap-x-6 w-full px-4 py-3 items-center border border-white/10 hover:cursor-pointer transition ease-in-out duration-300 hover:bg-white/5 rounded-md shadow-inner" onClick={()=>{
+                    <NavLink to="/avatarGPT/category"><div className="flex flex-row gap-x-6 w-full px-4 py-3 items-center border border-white/10 hover:cursor-pointer transition ease-in-out duration-300 hover:bg-white/5 rounded-md shadow-inner" onClick={() => {
                         dispatch(getCategory("Celebraties"));
                     }}>
                         <img src="/Images/lightMode.png" className="w-5 h-5" alt="resetThread"></img>
@@ -107,72 +107,40 @@ const AvatarGPT = () => {
 
 
 
-            <section className={`mainAvatarGPTChatBox h-full flex-1 flex flex-col gap-y-10 items-center p-2 relative`}>
+            <section className={`mainAvatarGPTChatBox h-full flex-1 flex flex-col gap-y-10 items-center p-2 relative bg-gradient-to-b from-cyan-100 to-cyan-50`}>
 
                 <Header getBorderColor="border-gray-700" getTextColor="text-black" />
 
-                <h1 className="text-blue-900 font-bold text-4xl" id="tagLine">ChatGPT</h1>
 
-                {/* <div className="flex flex-col gap-y-8 w-full" id="userPrompt">
+                <h1 className="font-bold text-4xl bg-clip-text text-transparent bg-gradient-to-r from-blue-200 via-blue-600 to-blue-700 px-40 py-2 rounded-md shadow-2xl bg-black/20" id="tagLine">AvatarGPT</h1>
 
-                    <div className="flex flex-row gap-x-6 bg-gray-600 w-full container mx-auto max-w-screen-lg items-center p-4 text-white rounded-t-md border-b border-white/10">
-                        <img src="/Images/lightbulb.png" className="w-8 h-8" alt="user"></img>
+                <div className="flex flex-col gap-y-8 w-full h-full items-center rounded-r-lg" id="userPrompt">
 
-                        <h1>Hi, I am Elon. Lets have some chat. Ask me anything you want.</h1>
+                    <div className="flex flex-row gap-x-4 w-full h-full rounded-r-lg container mx-auto max-w-5xl">
 
+                        <div className="flex flex-col gap-y-6 w-1/2 h-full  rounded-l-lg animate-text  justify-center">
+                            <h1 className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-cyan-600 to-cyan-700 animate-text">Unfiltered Conversations!!</h1>
+
+                            <h1 className="text-3xl font-bold text-black/80">Your Chance to Grill Your Favourite Celebrities. </h1>
+
+                            <h1 className="text-xl leading-relaxed text-black/80">Experience the thrill of direct interaction as you chat with the stars and ask them anything you want - with no limits or boundaries!<br></br>
+                                Real Talk: No Limits, No Filters, Just You and Your Fave Celebs</h1>
+
+                                <button type="button" className="bg-red-500 px-8 w-fit py-2 rounded-md text-white font-bold text-xl">Get Started</button>
+
+                        </div>
+                        <div className="flex items-center flex-1 h-full rounded-r-lg">
+                            <img src="/Images/beingCool.png" alt="beingCool" className="w-full"></img>
+                        </div>
                     </div>
 
-                    <div className="flex flex-row gap-x-6 bg-gray-600 w-full container mx-auto max-w-screen-lg items-center p-4 text-white rounded-b-md overflow-scroll h-fit">
-                        <img src="/Images/log.png" className="w-8 h-8" alt="user"></img>
-
-                        <h1 className="leading-7">{showOutput}</h1>
-
-                    </div>
-                </div> */}
-
-
-                {/* <Business/> */}
-
-
-
-                {/* <div className="flex flex-col gap-y-8 w-full hidden" id="userPrompt">
-
-                    <div className="flex flex-row gap-x-6 bg-gray-600 w-full container mx-auto max-w-screen-lg items-center p-4 text-white rounded-t-md border-b border-white/10">
-                        <img src="/Images/lightbulb.png" className="w-8 h-8" alt="user"></img>
-
-                        {/* <h1>{requestedPrompt}</h1> */}
-
-                {/* </div>
-
-                    <div className="flex flex-row gap-x-6 bg-gray-600 w-full container mx-auto max-w-screen-lg items-center p-4 text-white rounded-b-md overflow-scroll h-fit">
-                        <img src="/Images/log.png" className="w-8 h-8" alt="user"></img>
-
-                        {/* <h1 className="leading-7">{showLoader ? loading : showOutput}</h1> */}
-                {/* 
-                    </div>
-                </div>   */}
-
-
-
-
-
-                <form className="inputBox flex container max-w-4xl px-4 py-1 gap-x-3 absolute bottom-20 shadow-xl focus:outline-none items-center rounded-md">
-
-                    <input
-                        type="text"
-                        className="w-full text-white font-normal bg-transparent appearance-none focus:outline-none border-none py-2"
-                        placeholder="Send a Message.."
-                        value=""
-                        onChange={() => { }}></input>
-
-                    <span className="hover:cursor-pointer text-xl hover:bg-black/40 px-3 rounded-md">↗️</span>
-
-                </form>
-
-                <div className="flex flex-col items-center justify-center w-full absolute bottom-4 px-2">
-                    <h1 className="text-md">Free Research Preview: ChatGPT is optimised for dialogue. Our goal is to make AI systems more natural to interact with, and your feeback will help us improve</h1>
-                    <h1> our systems and make them safer.</h1>
                 </div>
+
+
+
+
+
+
 
 
 

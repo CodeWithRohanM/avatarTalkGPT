@@ -35,5 +35,12 @@ const getPersonURL = (url) =>{
     };
 };
 
+const getTagLine = (tagLine) =>{
+    return {
+        type: "GET_TAG_LINE",
+        payLoad: tagLine,
+    };
+}
 
-export { getLoaderStatus, getStaticChatResponse, getPersonName, getCategory, getPersonURL };
+
+export { getLoaderStatus, getStaticChatResponse, getPersonName, getCategory, getPersonURL, getTagLine };
