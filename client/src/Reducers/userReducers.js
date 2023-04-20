@@ -1,12 +1,13 @@
 /* eslint-disable no-lone-blocks */
 const initialState = {
     loaderStatus: false,
-    personName: "",
+    personName: "personName",
     staticChatResponse: "",
-    categoryName: "",
-    link: "",
-    tagLine: "",
+    categoryName: "category",
+    personTagLine: "tagLine",
+    link: "link",
 };
+
 
 const userReducer = (state = initialState, action) => {
 
@@ -40,21 +41,21 @@ const userReducer = (state = initialState, action) => {
             };
         };
 
-        case "GET_PERSON_URL": {
+        case "GET_TAG_LINE": {
             return {
                 ...initialState,
+                personTagLine: action.payLoad,
+            }
+        };
+
+        case "GET_PERSON_URL": {
+            return {
+                ...state,
                 link: action.payLoad,
             };
         };
 
-        case "GET_TAG_LINE": {
-            return {
-                ...initialState,
-                tagLine: action.payLoad,
-            }
-        };
-
-        default: return initialState;
+        default: return state;
     }
 };
 

@@ -7,6 +7,10 @@ import Extensions from "./Components/Extensions";
 import { Routes, Route } from "react-router-dom";
 import PersonChat from "./Components/PersonChat";
 import PersonCategoryList from "./Components/PersonCategoryList";
+import BusinessCategory from "./Components/BusinessCategory";
+import CelebratiesCategory from "./Components/CelebratiesCategory";
+import SportsCategory from "./Components/SportsCategory";
+import { Sports } from "./Components/ListItems";
 
 
 // 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
@@ -24,7 +28,9 @@ const App = () => {
         <Route exact path="/avatarGPT" element={<AvatarGPT />}></Route>
         <Route exact path="/extensions" element={<Extensions />}></Route>
         <Route exact path="/avatarGPT/roleplay" element={<PersonChat />}></Route>
-        <Route exact path="/avatarGPT/category" element={<PersonCategoryList/>}></Route>
+        <Route exact path="/avatarGPT/business" element={<BusinessCategory />}></Route>
+        <Route exact path="/avatarGPT/celebraties" element={<CelebratiesCategory />}></Route>
+        <Route exact path="/avatarGPT/sports" element={<SportsCategory />}></Route>
       </Routes>
 
     </div>

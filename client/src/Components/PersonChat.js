@@ -2,17 +2,38 @@ import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import { useSelector, useDispatch } from "react-redux";
 import ReactPlayer from "react-player";
+import {Business, Celebraties, Sports} from "../Components/ListItems";
 
 const PersonChat = () => {
 
     const pName = useSelector((state) => state.userReducer.personName);
     const pURL = useSelector((state) => state.userReducer.link);
-    const tagLine = useSelector((state)=> state.userReducer.tagLine);
+    const pTagLine = useSelector((state)=> state.userReducer.tagLine);
+
+    console.log("Person Name = "+pName);
+    console.log("Person Link = "+pURL);
+    console.log("Person TagLine = "+pTagLine);
+
+    // let getTagLine = "";
+
+    // if(pName === "Business")
+    // {
+    //     getTagLine = pName.filter((curVal, index) => curVal.fullName === pName).map((curVal, index)=> curVal.tagLine);
+    // }
+
+
+    
+
+    // console.log("Tag Line = "+getTagLine);
+
+    // console.log(Business);
+
+
 
     const getPersonImage = pName.split(" ")[0];
 
-    console.log("Person Name = " + pName);
-    console.log('Person URL = ' + pURL);
+    // console.log("Person Name = " + pName);
+    // console.log('Person URL = ' + pURL);
 
     const [showOutput, setShowOutput] = useState("");
     const [userInput, setUserInput] = useState("");
@@ -158,7 +179,7 @@ const PersonChat = () => {
                 justify-center items-center p-2 border-b border-black/10 text-black/80">
                     <img src="/Images/lightbulb.png" className="w-8 h-8" alt="user"></img>
 
-                    <h1 className="text-xl font-bold">{`Heyy, I am ${pName}. ${tagLine}`}</h1>
+                    <h1 className="text-xl font-bold">{`Heyy, I am ${pName}. ${pURL}`}</h1>
 
                 </div>
 

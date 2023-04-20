@@ -14,7 +14,7 @@ const getStaticChatResponse = (response) =>{
     }
 };
 
-const getPersonName = (name) =>{
+const getPersonName = (name,) =>{
     return {
         type: "GET_PERSON_NAME",
         payLoad: name,
@@ -35,7 +35,7 @@ const getPersonURL = (url) =>{
     };
 };
 
-const getTagLine = (tagLine) =>{
+const getPersonTagLine = (tagLine) =>{
     return {
         type: "GET_TAG_LINE",
         payLoad: tagLine,
@@ -43,4 +43,4 @@ const getTagLine = (tagLine) =>{
 }
 
 
-export { getLoaderStatus, getStaticChatResponse, getPersonName, getCategory, getPersonURL, getTagLine };
+export { getLoaderStatus, getStaticChatResponse, getPersonName, getCategory, getPersonURL, getPersonTagLine };
