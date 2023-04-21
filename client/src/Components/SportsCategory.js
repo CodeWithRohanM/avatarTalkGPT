@@ -69,7 +69,7 @@ const SportsCategory = () => {
                             return <>
 
                                 <div className="flex flex-col gap-y-2 bg-gradient-to-r from-blue-400 via-blue-600 to-blue-700 items-center h-fit rounded-lg p-4 
-                                shadow-inner hover:-translate-y-1 transition ease-in-out duration-300 hover:shadow-2xl"
+                                shadow-inner hover:-translate-y-1 transition ease-in-out duration-300 hover:shadow-2xl hover:bg-gradient-to-l hover:from-yellow-600 hover:to-yellow-500"
                                     onClick={() => {
                                         getDetails(index);
                                     }}>

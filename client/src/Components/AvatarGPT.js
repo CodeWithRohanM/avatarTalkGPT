@@ -52,7 +52,7 @@ const AvatarGPT = () => {
 
                         <div className="flex flex-1 items-center h-full rounded-r-lg justify-end">
                             {/* <div className="flex items-center bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-600 rounded-3xl"> */}
-                            <img src="/Images/unfiltered.gif" alt="beingCool" className=""></img>
+                            <img src="/Images/beingCool.png" alt="beingCool" className=""></img>
                             {/* </div> */}
                         </div>
                     </div>

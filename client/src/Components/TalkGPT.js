@@ -152,7 +152,7 @@ const TalkGPT = () => {
 
                 <Header getBorderColor="border-white/10" getTextColor="text-gray-200" />
 
-                <h1 className="text-gray-200 font-bold text-4xl" id="tagLine">ChatGPT</h1>
+                <h1 className="text-gray-200 font-bold text-4xl" id="tagLine">TalkGPT</h1>
 
 
 
