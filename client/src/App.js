@@ -11,6 +11,7 @@ import BusinessCategory from "./Components/BusinessCategory";
 import CelebratiesCategory from "./Components/CelebratiesCategory";
 import SportsCategory from "./Components/SportsCategory";
 import { Sports } from "./Components/ListItems";
+import NextChat from "./Components/NextChat";
 
 
 // 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
@@ -31,6 +32,7 @@ const App = () => {
         <Route exact path="/avatarGPT/business" element={<BusinessCategory />}></Route>
         <Route exact path="/avatarGPT/celebraties" element={<CelebratiesCategory />}></Route>
         <Route exact path="/avatarGPT/sports" element={<SportsCategory />}></Route>
+        <Route exact path="/avatarGPT/nextChat" element={<NextChat />}></Route>
       </Routes>
 
     </div>

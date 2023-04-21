@@ -62,11 +62,13 @@ const BusinessCategory = () => {
 
                 <Header getBorderColor="border-gray-700" getTextColor="text-black" />
 
-                <h1 className="text-blue-900 font-bold text-4xl bg-black/10 shadow-2xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-600 to-blue-700 px-6 py-2 rounded-md" id="tagLine">Business</h1>
+                <h1 className="text-blue-900 font-bold text-4xl bg-black/10 shadow-2xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-600 to-blue-700 w-3/4 text-center py-2 rounded-md relative" id="tagLine">Your idiolized Business Persons</h1>
+
+                <img src="/Images/look.png" className="w-fit h-24 left-36 top-4 absolute" alt="look"></img>
 
 
 
-                <div className="grid grid-cols-3 gap-x-4 w-11/12 gap-y-6 overflow-scroll">
+                <div className="grid grid-cols-3 gap-x-4 w-11/12 gap-y-6 overflow-y-visible">
                     {
                         loader && <h1>Loading..</h1>
                     }
@@ -75,7 +77,8 @@ const BusinessCategory = () => {
                         !loader && peopleArray.map((curVal, index) => {
                             return <>
 
-                                    <div className="flex flex-col gap-y-2 bg-gradient-to-r from-blue-400 via-blue-600 to-blue-700 items-center h-fit rounded-lg p-4 shadow-inner"
+                                    <div className="flex flex-col gap-y-2 bg-gradient-to-r from-blue-400 via-blue-600 to-blue-700 items-center h-fit rounded-lg p-4 
+                                    shadow-inner hover:-translate-y-1 transition ease-in-out duration-300 hover:shadow-2xl hover:bg-gradient-to-l hover:from-yellow-600 hover:to-yellow-300"
                                         onClick={() => {
                                             getDetails(index);
                                         }}>
@@ -87,7 +90,7 @@ const BusinessCategory = () => {
                                         </div>
 
                                         <div className="flex flex-col gap-y-4 hidden items-centerw-full bg-white rounded-lg" id={index}>
-                                            <h1 className="text-center p-3 rounded-b-lg text-lg text-black/60">{curVal.descri}</h1>
+                                            <h1 className="text-center p-3 rounded-b-lg text-lg text-black/60 h-fit">{curVal.descri}</h1>
 
                                             <NavLink to="/avatarGPT/roleplay">
                                                 <div className="flex justify-center">

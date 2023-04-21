@@ -36,22 +36,23 @@ const AvatarGPT = () => {
 
                 <div className="flex flex-col gap-y-8 w-full h-full items-center rounded-r-lg" id="userPrompt">
 
-                    <div className="flex flex-row gap-x-4 w-full h-full rounded-r-lg container mx-auto max-w-5xl ">
+                    <div className="flex flex-row  w-full h-full rounded-r-lg container mx-auto max-w-5xl bg-cyan-200 rounded-xl">
 
-                        <div className="flex flex-col gap-y-6 w-1/2 h-full  rounded-l-lg animate-text  justify-center">
+                        <div className="flex flex-col gap-y-6 w-1/2 h-full rounded-l-lg animate-text  justify-center pl-12">
                             <h1 className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-cyan-600 to-cyan-700 animate-text">Unfiltered Conversations!!</h1>
 
-                            <h1 className="text-3xl font-bold text-black/80">Your Chance to Grill Your Favourite Celebrities. </h1>
+                            <h1 className="text-3xl font-bold text-black/80">Your Chance to Grill Your Favourite Folks. </h1>
 
-                            <h1 className="text-xl leading-relaxed text-black/80">Experience the thrill of direct interaction as you chat with the stars and ask them anything you want - with no limits or boundaries!<br></br>
+                            <h1 className="text-xl leading-relaxed text-black/80">Experience the thrill of direct interaction as you chat with your stars and ask them anything you want - <span className="font-bold">With No Limits or Boundaries!</span><br></br>
                                 Real Talk: No Limits, No Filters, Just You and Your Fave Celebs</h1>
 
-                            <button type="button" className="bg-red-500 px-8 w-fit py-2 rounded-md text-white font-bold text-xl">Get Started</button>
+                            <button type="button" className="bg-red-500 px-8 w-fit py-2 rounded-md text-white font-bold text-xl">Get Started <span className="ml-2 text-xl">↗️</span></button>
 
                         </div>
-                        <div className="flex items-center w-full h-full rounded-r-lg justify-end">
+
+                        <div className="flex flex-1 items-center h-full rounded-r-lg justify-end">
                             {/* <div className="flex items-center bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-600 rounded-3xl"> */}
-                            <img src="/Images/beingCool.png" alt="beingCool" className=""></img>
+                            <img src="/Images/unfiltered.gif" alt="beingCool" className=""></img>
                             {/* </div> */}
                         </div>
                     </div>

@@ -59,11 +59,13 @@ const CelebratiesCategory = () => {
 
                 <Header getBorderColor="border-gray-700" getTextColor="text-black" />
 
-                <h1 className="text-blue-900 font-bold text-4xl bg-black/10 shadow-2xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-600 to-blue-700 px-6 py-2 rounded-md" id="tagLine">Business</h1>
+                <h1 className="text-blue-900 font-bold text-4xl bg-black/10 shadow-2xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-600 to-blue-700 w-3/4 text-center py-2 rounded-md relative" id="tagLine">Your Beloved Celebraties</h1>
+
+                <img src="/Images/films.png" className="w-24 h-24 absolute top-4 left-36" alt="flims"></img>
 
 
 
-                <div className="grid grid-cols-3 gap-x-4 w-11/12 gap-y-6 overflow-scroll">
+                <div className="grid grid-cols-3 gap-x-4 w-11/12 gap-y-6 overflow-y-scroll">
                     {
                         loader && <h1>Loading..</h1>
                     }
@@ -72,7 +74,8 @@ const CelebratiesCategory = () => {
                         !loader && peopleArray.map((curVal, index) => {
                             return <>
 
-                                <div className="flex flex-col gap-y-2 bg-gradient-to-r from-blue-400 via-blue-600 to-blue-700 items-center h-fit rounded-lg p-4 shadow-inner"
+                                <div className="flex flex-col gap-y-2 bg-gradient-to-r from-blue-400 via-blue-600 to-blue-700 items-center h-fit rounded-lg p-4 
+                                shadow-inner hover:-translate-y-1 transition ease-in-out duration-500 hover:shadow-2xl hover:bg-gradient-to-l hover:from-yellow-600 hover:to-yellow-300"
                                     onClick={() => {
                                         getDetails(index);
                                     }}>

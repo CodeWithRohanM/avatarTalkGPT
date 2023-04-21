@@ -56,7 +56,7 @@ const Celebraties = [
         fullName: "Shahrukh Khan",
         image: "Shahrukh",
         link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
-        descri: "Hi, I am Satya Nadella, the current CEO of Microsoft who has led the tech giant towards cloud computing and AI. Let's have some fun chat about the future of technology or talk about how technology can shape our world in unexpected ways.",
+        descri: "Kabhi Khushi Kabhie Gham, but right now let's chat! I'm Shahrukh Khan.",
         id: 0,
         tagLine: "Let's chat about life, love, and all things in between - SRK style!",
 
@@ -65,7 +65,7 @@ const Celebraties = [
         fullName: "Hrithik Roshan",
         image: "Hrithik",
         link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
-        descri: "Hi, this is Elon",
+        descri: "I may be Hrithik Roshan, but even I need a break from being the Greek God of Bollywood. Let's chat!",
         id: 1,
         tagLine: "Let's chat and make sure you've got your dancing shoes on. After all, 'Ek pal ka jeena'.",
 
@@ -74,8 +74,8 @@ const Celebraties = [
         fullName: "Priyanka Chopra Jonas",
         image: "Priyanka",
         link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
-        descri: "Hi, this is Elon",
-        id: 1,
+        descri: "Who needs a red carpet when you've got me, Priyanka Chopra, to light up any room?",
+        id: 2,
         tagLine: "Let's chat and make sure you've got your dancing shoes on. After all, 'Ek pal ka jeena'.",
 
     },
@@ -84,16 +84,16 @@ const Celebraties = [
         image: "Amitabh",
         link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
         descri: "Hi, this is Elon",
-        id: 2,
-        tagLine: "Tumhara naam kya hai, Basanti?",
+        id: 3,
+        tagLine: "Jab tak zinda hoon, Amitabh Bachchan hoon. Yahaan par hum dono milkar baatein karenge.",
 
     },
     {
         fullName: "Kareena Kapoor Khan",
         image: "Kareena",
         link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
-        descri: "Hi, this is Elon",
-        id: 1,
+        descri: "I'm the epitome of Bollywood glamour, let's chat about how to slay every red carpet like it's no big deal.",
+        id: 4,
         tagLine: "Let's chat and make sure you've got your dancing shoes on. After all, 'Ek pal ka jeena'.",
 
     },
@@ -102,8 +102,8 @@ const Celebraties = [
         fullName: "Alia Bhatt",
         image: "Alia",
         link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
-        descri: "Hi, this is Elon",
-        id: 1,
+        descri: "I may be a Gen Z actress, but I still believe in old-school charm - let's discuss how to balance both in life!",
+        id: 5,
         tagLine: "Let's chat and make sure you've got your dancing shoes on. After all, 'Ek pal ka jeena'.",
 
     },
@@ -111,8 +111,8 @@ const Celebraties = [
         fullName: "Aamir Khan",
         image: "Aamir",
         link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
-        descri: "Hi, this is Elon",
-        id: 3,
+        descri: "Mr. Perfectionist reporting for duty, let's talk films and change!",
+        id: 6,
         tagLine: `First Lets Say, "All Izz Well"- let's chat and make sure all is indeed well in our lives!`,
 
     },
@@ -120,8 +120,8 @@ const Celebraties = [
         fullName: "Salman Khan",
         image: "Salman",
         link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
-        descri: "Hi, this is Elon",
-        id: 4,
+        descri: "Being a superstar is just my day job, let's have a conversation about what really matters in life.",
+        id: 7,
         tagLine: "Swagat nahi karoge hamara?",
 
     },
@@ -130,7 +130,7 @@ const Celebraties = [
         image: "Katrina",
         link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
         descri: "Hi, this is Elon",
-        id: 1,
+        id: 8,
         tagLine: "Let's chat and make sure you've got your dancing shoes on. After all, 'Ek pal ka jeena'.",
 
     },
@@ -138,8 +138,8 @@ const Celebraties = [
         fullName: "Madhuri Dixit",
         image: "Madhuri",
         link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
-        descri: "Hi, this is Elon",
-        id: 1,
+        descri: "From Ek Do Teen to Kalank, let's groove to the beats of Bollywood together.",
+        id: 9,
         tagLine: "Let's chat and make sure you've got your dancing shoes on. After all, 'Ek pal ka jeena'.",
 
     },
@@ -148,28 +148,16 @@ const Celebraties = [
         image: "Kajol",
         link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
         descri: "Hi, this is Elon",
-        id: 1,
+        id: 10,
         tagLine: "Let's chat and make sure you've got your dancing shoes on. After all, 'Ek pal ka jeena'.",
 
     },
-    {
-        fullName: "Priyanka Chopra Jonas",
-        image: "Priyanka",
-        link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
-        descri: "Hi, this is Elon",
-        id: 1,
-        tagLine: "Let's chat and make sure you've got your dancing shoes on. After all, 'Ek pal ka jeena'.",
-
-    },
-
-
-
     {
         fullName: "Robert Downy Jr.",
         image: "Robert",
         link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
         descri: "Hi, this is Elon",
-        id: 5,
+        id: 11,
         tagLine: "I heard you were looking for some witty banter. Iron Man at your service.",
 
     },
@@ -177,8 +165,8 @@ const Celebraties = [
         fullName: "Leonardo Dicaprio",
         image: "Leonardo",
         link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
-        descri: "Hi, this is Elon",
-        id: 6,
+        descri: "From Titanic to The Revenant, let's talk about my iconic roles and our shared love for the environment.",
+        id: 12,
         tagLine: "Looks like we've got a sinking ship here, but let's chat anyways.",
 
     },
@@ -186,8 +174,8 @@ const Celebraties = [
         fullName: "Angelina Jolie",
         image: "Angelina",
         link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
-        descri: "Hi, this is Elon",
-        id: 1,
+        descri: "Hello, my fellow humanitarian and showbiz superstar! Let's talk about our common interests and make the world a better place.",
+        id: 13,
         tagLine: "Let's chat and make sure you've got your dancing shoes on. After all, 'Ek pal ka jeena'.",
 
     },
@@ -195,8 +183,8 @@ const Celebraties = [
         fullName: "Bradd Pitt",
         image: "Bradd",
         link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
-        descri: "Hi, this is Elon",
-        id: 7,
+        descri: "Shall we talk about movies or let's bond over our passion for humanitarian work? Either way, let's chat!",
+        id: 14,
         tagLine: "You know what they say - always be closing. So, what can I close for you today?",
 
     },
@@ -204,8 +192,8 @@ const Celebraties = [
         fullName: "Johny Depp",
         image: "Johny",
         link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
-        descri: "Hi, this is Elon",
-        id: 8,
+        descri: "I may be the king of quirky characters on screen, but I'm just Johnny in real life. Let's chat about movies, music and whatever floats our boat.",
+        id: 15,
         tagLine: "Let's mix our words like Jack Sparrow mixes his rum",
 
     },
@@ -214,7 +202,7 @@ const Celebraties = [
         image: "Jennifer",
         link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
         descri: "Hi, this is Elon",
-        id: 1,
+        id: 16,
         tagLine: "Let's chat and make sure you've got your dancing shoes on. After all, 'Ek pal ka jeena'.",
 
     },
@@ -222,8 +210,8 @@ const Celebraties = [
         fullName: "Dwayne Johnson",
         image: "Dwayne",
         link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
-        descri: "Hi, this is Elon",
-        id: 9,
+        descri: "If you smell what The Rock and I are cooking, it's a fun chat filled with action-packed stories!",
+        id: 17,
         tagLine: "If you're ready to talk, you just have to say the magic word...it's not please, it's Jungle Cruise!",
 
     },
@@ -231,8 +219,8 @@ const Celebraties = [
         fullName: "Scarlett Johanssson",
         image: "Scarlett",
         link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
-        descri: "Hi, this is Elon",
-        id: 1,
+        descri: "Are you ready to kickass and take names? Let's chat about Black Widow and our badass roles in Hollywood!",
+        id: 18,
         tagLine: "Let's chat and make sure you've got your dancing shoes on. After all, 'Ek pal ka jeena'.",
 
     },
@@ -240,26 +228,18 @@ const Celebraties = [
         fullName: "Emma Stone",
         image: "Emma",
         link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
-        descri: "Hi, this is Elon",
-        id: 1,
+        descri: "We may have been a part of different franchises, but let's talk about our love for literature, feminism and making an impact in the world.",
+        id: 19,
         tagLine: "Let's chat and make sure you've got your dancing shoes on. After all, 'Ek pal ka jeena'.",
 
     },
-    {
-        fullName: "Jennifer Anniston",
-        image: "Jennifer",
-        link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
-        descri: "Hi, this is Elon",
-        id: 1,
-        tagLine: "Let's chat and make sure you've got your dancing shoes on. After all, 'Ek pal ka jeena'.",
 
-    },
     {
         fullName: "Kate Winslet",
         image: "Kate",
         link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
-        descri: "Hi, this is Elon",
-        id: 1,
+        descri: "We may have gone through the highs and lows of life on the Titanic, but let's keep this chat light-hearted and fun!",
+        id: 20,
         tagLine: "Let's chat and make sure you've got your dancing shoes on. After all, 'Ek pal ka jeena'.",
 
     },
@@ -268,31 +248,110 @@ const Celebraties = [
         fullName: "Ryan Reynorlds",
         image: "Ryan",
         link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
-        descri: "Hi, this is Elon",
-        id: 10,
+        descri: "Let's break the internet with our witty banter and sarcastic humor, just like I do on Twitter.",
+        id: 21,
         tagLine: "Let's chat about our favorite ways to waste time, 'cause honestly, who's got anything better to do?",
 
     },
-    {
-        fullName: "Sandra Bullock",
-        image: "Priyanka",
-        link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
-        descri: "Hi, this is Elon",
-        id: 1,
-        tagLine: "Let's chat and make sure you've got your dancing shoes on. After all, 'Ek pal ka jeena'.",
 
-    },
 ];
 
-const Sports = [{
-    fullName: "Lionel Messi",
-    image: "Lionel",
-    link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
-    descri: "Hi, this is Messi",
-    id: 0,
-    tagLine: "Lets talk about how technology can shape our world in unexpected ways.",
 
-},]
+
+
+
+const Sports = [
+    {
+        fullName: "Lionel Messi",
+        image: "Lionel",
+        link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
+        descri: "Hi, this is Messi",
+        id: 0,
+        tagLine: "Lets talk about how technology can shape our world in unexpected ways.",
+
+    },
+    {
+        fullName: "Virat Kohli",
+        image: "Virat",
+        link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
+        descri: "Hi, this is Messi",
+        id: 1,
+        tagLine: "Lets talk about how technology can shape our world in unexpected ways.",
+
+    },
+    {
+        fullName: "Pele",
+        image: "Pele",
+        link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
+        descri: "Hi, this is Messi",
+        id: 2,
+        tagLine: "Lets talk about how technology can shape our world in unexpected ways.",
+
+    },
+    {
+        fullName: "Christiano Ronaldo",
+        image: "Ronaldo",
+        link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
+        descri: "Hi, this is Messi",
+        id: 3,
+        tagLine: "Lets talk about how technology can shape our world in unexpected ways.",
+
+    },
+    {
+        fullName: "Maradona",
+        image: "Maradona",
+        link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
+        descri: "Hi, this is Messi",
+        id: 4,
+        tagLine: "Lets talk about how technology can shape our world in unexpected ways.",
+
+    },
+    {
+        fullName: "Michael Phelps",
+        image: "Michael",
+        link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
+        descri: "Hi, this is Messi",
+        id: 5,
+        tagLine: "Lets talk about how technology can shape our world in unexpected ways.",
+
+    },
+    {
+        fullName: "Roger Federer",
+        image: "Roger",
+        link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
+        descri: "Hi, this is Messi",
+        id: 6,
+        tagLine: "Lets talk about how technology can shape our world in unexpected ways.",
+
+    },
+    {
+        fullName: "Muhammad Ali",
+        image: "Muhammad",
+        link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
+        descri: "Hi, this is Messi",
+        id: 7,
+        tagLine: "Lets talk about how technology can shape our world in unexpected ways.",
+
+    },
+    {
+        fullName: "Sachin Tendulkar",
+        image: "Sachin",
+        link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
+        descri: "Hi, this is Messi",
+        id: 8,
+        tagLine: "Lets talk about how technology can shape our world in unexpected ways.",
+
+    },
+    {
+        fullName: "Michael Phelps",
+        image: "Michael",
+        link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
+        descri: "Hi, this is Messi",
+        id: 9,
+        tagLine: "Lets talk about how technology can shape our world in unexpected ways.",
+
+    }]
+
 
 
 export { Business, Celebraties, Sports };

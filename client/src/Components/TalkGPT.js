@@ -169,7 +169,7 @@ const TalkGPT = () => {
 
                     </div>
 
-                    <div className="flex flex-row gap-x-6 bg-gray-600 w-full container mx-auto max-w-screen-lg items-center p-4 text-white rounded-b-md overflow-scroll h-fit">
+                    <div className="flex flex-row gap-x-6 bg-gray-600 w-full container mx-auto max-w-screen-lg items-center p-4 text-white rounded-b-md overflow-y-scroll h-3/4">
                         <img src="/Images/log.png" className="w-8 h-8" alt="user"></img>
 
                         <h1 className="leading-7">{showLoader ? loading : showOutput}</h1>

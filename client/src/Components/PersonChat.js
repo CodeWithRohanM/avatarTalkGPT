@@ -2,17 +2,41 @@ import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import { useSelector, useDispatch } from "react-redux";
 import ReactPlayer from "react-player";
-import {Business, Celebraties, Sports} from "../Components/ListItems";
+import { Business, Celebraties, Sports } from "../Components/ListItems";
+import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const PersonChat = () => {
 
+    const navigate = useNavigate();
+
+
+
+    const [showOutput, setShowOutput] = useState("");
+    const [userInput, setUserInput] = useState("");
+    const [requestedPrompt, setRequestedPrompt] = useState("");
+    // const [personURL, setPersonURL] = useState("https://www.youtube.com/watch?v=xfGbyW6fs5w");
+    const [loader, setLoader] = useState(".");
+    const [showLoader, setShowLoader] = useState(false);
+    const [getEndChatMessgae, setEndChatMessage] = useState("");
+    const [endChat, setEndChat] = useState(false);
+
+
+
     const pName = useSelector((state) => state.userReducer.personName);
     const pURL = useSelector((state) => state.userReducer.link);
-    const pTagLine = useSelector((state)=> state.userReducer.tagLine);
+    const pTagLine = useSelector((state) => state.userReducer.tagLine);
 
-    console.log("Person Name = "+pName);
-    console.log("Person Link = "+pURL);
-    console.log("Person TagLine = "+pTagLine);
+
+    const [storeConversations, setStoreConversations] = useState(`Pretend to be ${pName} and answer my questions. I will ask you some questions and you have to answer as if you are ${pName}. Dont take any other role. Dont reply anything like you understood. Just reply as ${pName}. Dont add any questions on your own. Wait for my question and then only reply accordingly. Make it look completely as you are a real ${pName}. Be creative and funny sometimes. Conversations starts.`);
+
+    let storeUserInput = "";
+
+
+
+    console.log("Person Name = " + pName);
+    console.log("Person Link = " + pURL);
+    console.log("Person TagLine = " + pTagLine);
 
     // let getTagLine = "";
 
@@ -22,7 +46,7 @@ const PersonChat = () => {
     // }
 
 
-    
+
 
     // console.log("Tag Line = "+getTagLine);
 
@@ -35,11 +59,6 @@ const PersonChat = () => {
     // console.log("Person Name = " + pName);
     // console.log('Person URL = ' + pURL);
 
-    const [showOutput, setShowOutput] = useState("");
-    const [userInput, setUserInput] = useState("");
-    const [requestedPrompt, setRequestedPrompt] = useState("");
-    // const [personURL, setPersonURL] = useState("https://www.youtube.com/watch?v=xfGbyW6fs5w");
-    let storeUserInput = "";
 
 
     const takeUserInteraction = (event) => {
@@ -51,17 +70,36 @@ const PersonChat = () => {
         window.alert(pName + "!! Good Choice. Have a Blask!! ✋");
     }, []);
 
+
+
     const chatWithElon = async (event) => {
         try {
             event.preventDefault();
+            document.getElementById("endChatOption").style.display = "block";
+            console.log("CHATE = ");
+            console.log(storeConversations);
+            setShowLoader(true);
+
+            const getInterval = setInterval(() => {
+                setLoader((loader) => loader.length === 4 ? "." : loader + ".");
+
+                return () => {
+                    setLoader("");
+                }
+            }, 300);
+
+
 
             document.getElementById("elon_interaction").style.display = "block";
             // getElonOnBoard();
 
 
             storeUserInput = userInput;
+            setStoreConversations((storeConversations) => storeConversations + storeUserInput);
+
             setRequestedPrompt(userInput);
             setUserInput("");
+            setShowOutput("");
 
 
 
@@ -71,13 +109,21 @@ const PersonChat = () => {
                     "Content-type": "application/json",
                 },
                 body: JSON.stringify({
-                    userChat: `Pretend to be ${pName} and answer my questions. I will ask you some questions and you have to answer as if you are ${pName}. Dont take any other role. Dont reply anything like you understood. just reply as ${pName}. Conversations starts. Make it look completely as you are a real ${pName}.` + storeUserInput,
+                    userChat: storeConversations + storeUserInput,
                 }),
             });
 
             const getResponse = await getData.json();
+            setStoreConversations((storeConversations) => storeConversations + getResponse);
+
+            setShowLoader(false);
+            clearInterval(getInterval);
             setShowOutput(getResponse);
 
+
+
+            console.log("CHAT = ");
+            console.log(storeConversations);
         } catch (err) {
             console.warn(err);
         }
@@ -85,6 +131,46 @@ const PersonChat = () => {
     }
 
 
+
+    const getNextChat = async () => {
+        try {
+            setEndChat(true);
+
+            setShowLoader(true);
+            const getInterval = setInterval(() => {
+                setLoader((loader) => loader.length === 4 ? "." : loader + ".");
+
+                return () => {
+                    setLoader("");
+                }
+            }, 300);
+
+            const personPrompt = `${pName} is quite happy to chat with you and has a wonderful time talking with you. Give me one line response like, I enjoyed our conversation, am just a chat away. Give me relevant to this in ${pName}'s tone or way of talking. Dont forget to add a farewell word.`;
+
+            const getData = await fetch("/getEndChatMessage", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    getMessage: personPrompt,
+                }),
+            });
+
+            const getResponse = await getData.json();
+
+            setShowLoader(false);
+            setEndChatMessage(getResponse);
+
+            const getTimeOut = setTimeout(() => {
+                navigate("/avatarGPT/nextChat");
+                return () => clearTimeout(getTimeOut);
+            }, 4000);
+
+        } catch (err) {
+            console.warn(err);
+        }
+    };
 
 
 
@@ -194,20 +280,26 @@ const PersonChat = () => {
                 </div> */}
 
 
-                <div className="flex flex-col w-full hidden h-full bg-black/10" id="elon_interaction">
-                    <div className="flex flex-row gap-x-4 bg-gray-600 w-full container mx-auto max-w-screen-lg p-2 text-white overflow-scroll border-b border-white/20" id="elon_interaction">
+                <div className="flex flex-col w-full hidden h-full" id="elon_interaction">
+                    <div className="flex flex-row gap-x-4 bg-gray-600 w-full container mx-auto max-w-screen-lg p-2 text-white overflow-scroll border-b border-white/20 rounded-t-lg" id="elon_interaction">
                         <img src="/Images/shiba.jpeg" className="w-8 h-8 rounded-full" alt="user"></img>
 
-                        <h1 className="leading-7">{requestedPrompt}</h1>
+                        <h1 className="leading-7 text-xl font-bold">{requestedPrompt}</h1>
 
                     </div>
 
-                    <div className="container mx-auto max-w-screen-lg  text-white overflow-scroll h-1/2" >
+                    <div className="container mx-auto max-w-screen-lg  text-white overflow-scroll h-44 rounded-b-lg" >
 
                         <div className="flex flex-row gap-x-4 w-full bg-gray-600 h-fit p-2 rounded-b-md">
                             <img src={`/Images/${getPersonImage}.png`} className="w-8 h-8" alt="elon"></img>
 
-                            <h1 className="leading-7">{showOutput}</h1>
+                            {
+                                !endChat && <h1 className="leading-7">{showLoader ? loader : showOutput}</h1>
+                            }
+                            {
+                                endChat && <h1 className="leading-7">{showLoader ? loader : getEndChatMessgae}</h1>
+                            }
+
                         </div>
 
                     </div>
@@ -219,7 +311,8 @@ const PersonChat = () => {
 
 
 
-                <form className="inputBox flex container max-w-4xl px-4 py-1 gap-x-3 absolute bottom-20 shadow-xl focus:outline-none items-center rounded-md" onSubmit={chatWithElon}>
+                <form className="inputBox flex container mx-auto max-w-4xl px-4 py-1 gap-x-3 absolute bottom-20 shadow-xl focus:outline-none items-center rounded-md" onSubmit={chatWithElon}>
+
 
                     <input
                         type="text"
@@ -230,7 +323,13 @@ const PersonChat = () => {
 
                     <span className="hover:cursor-pointer text-xl hover:bg-black/40 px-3 rounded-md" onClick={chatWithElon}>↗️</span>
 
+                    {/* <NavLink to="/avatarGPT/nextChat"> */}
+                    <button type="button" className="bg-red-500 text-white font-bold rounded-lg hover:opacity-80 transition ease-in-out duration-300 w-24 py-1 text-lg hidden" id="endChatOption"
+                        onClick={getNextChat}>End Chat</button>
+                    {/* </NavLink> */}
                 </form>
+
+
 
                 <div className="flex flex-col items-center justify-center w-full absolute bottom-4 px-2">
                     <h1 className="text-md">Free Research Preview: ChatGPT is optimised for dialogue. Our goal is to make AI systems more natural to interact with, and your feeback will help us improve</h1>

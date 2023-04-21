@@ -83,8 +83,25 @@ app.post("/roleplayChat", async (req, res) => {
         console.warn(err);
     }
 
-})
+});
 
+app.post("/getEndChatMessage", async(req, res)=>{
+    try{
+        // console.log("Inside PersonPrimo");
+        const getPersonPromt = req.body.getMessage;
+
+        const getResponse = await OpenAi.createChatCompletion({
+            model: "gpt-3.5-turbo",
+            messages:[{role: "user", content: getPersonPromt}],
+        });
+
+        res.status(200).json(getResponse.data.choices[0].message.content);
+
+    }catch(err){
+        console.warn(err);
+    }
+
+})
 
 
 
