@@ -68,7 +68,7 @@ const BusinessCategory = () => {
 
 
 
-                <div className="grid grid-cols-3 gap-x-4 w-11/12 gap-y-6 overflow-y-visible">
+                <div className="grid grid-cols-3 gap-x-4 w-11/12 gap-y-6 overflow-y-scroll scroll-smooth">
                     {
                         loader && <h1>Loading..</h1>
                     }

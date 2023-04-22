@@ -9,6 +9,10 @@ const TemplateAside = () => {
 
     const [categoriesStatus, setCategoriesStatus] = useState(false);
 
+    const [celebratiesTypeStatus, setCelebratiesTypeStatus] = useState(false);
+
+    const [getBorderWidth, setBorderWidth] = useState("");
+
 
     return <>
         <aside className="avatarGPTSideMenu h-full border-r border-white/5 p-2 flex flex-col gap-y-6 font-bold text-lg">
@@ -44,12 +48,55 @@ const TemplateAside = () => {
                             <h1>Business</h1>
                         </div></NavLink>
 
-                        <NavLink to="/avatarGPT/celebraties"><div className="flex flex-row gap-x-6 w-full px-4 py-3 items-center border border-white/30 hover:cursor-pointer transition ease-in-out duration-300 hover:bg-white/5 rounded-md shadow-inner" onClick={() => {
-                            dispatch(getCategory("Celebraties"));
-                        }}>
-                            <img src="/Images/film.png" className="w-6 h-6" alt="resetThread"></img>
-                            <h1>Celebraties</h1>
-                        </div></NavLink>
+
+                        <div className={`flex flex-col ${getBorderWidth} w-full`}>
+                            <div className="flex flex-row gap-x-6 w-full px-4 py-3 items-center border border-white/30 hover:cursor-pointer transition ease-in-out duration-300 hover:bg-white/5 rounded-md shadow-inner" onClick={() => {
+                                // dispatch(getCategory("Celebraties"));
+                                setCelebratiesTypeStatus(!celebratiesTypeStatus);
+                                setBorderWidth((getBorderWidth) => celebratiesTypeStatus ? "" : "border-4 rounded-lg");
+                                console.log(celebratiesTypeStatus);
+                            }}>
+                                <img src="/Images/film.png" className="w-6 h-6" alt="resetThread"></img>
+                                <h1>Celebraties</h1>
+                            </div>
+
+
+                            {
+
+                                celebratiesTypeStatus && <div className="flex flex-col gap-y-3 w-full p-4" id="celebratiesTypes">
+
+                                    <NavLink to="/avatarGPT/celebratiesBollywood">
+                                        <div className="flex flex-row gap-x-6 w-full px-4 py-3 items-center border-4 border-white/30 hover:cursor-pointer transition ease-in-out duration-300 hover:bg-white/5 rounded-md shadow-inner" onClick={() => {
+                                            dispatch(getCategory("CelebratiesBollywood"));
+                                        }}>
+                                            <img src="/Images/film.png" className="w-6 h-6" alt="resetThread"></img>
+                                            <h1>Bollywood</h1>
+                                        </div>
+                                    </NavLink>
+
+                                    <NavLink to="/avatarGPT/celebratiesHollywood">
+                                        <div className="flex flex-row gap-x-6 w-full px-4 py-3 items-center border-4 border-white/30 hover:cursor-pointer transition ease-in-out duration-300 hover:bg-white/5 rounded-md shadow-inner" onClick={() => {
+                                            dispatch(getCategory("CelebratiesHollywood"));
+                                        }}>
+                                            <img src="/Images/film.png" className="w-6 h-6" alt="resetThread"></img>
+                                            <h1>Hollywood</h1>
+                                        </div>
+                                    </NavLink>
+
+                                    <NavLink to="/avatarGPT/celebraties">
+                                        <div className="flex flex-row gap-x-6 w-full px-4 py-3 items-center border-4 border-white/30 hover:cursor-pointer transition ease-in-out duration-300 hover:bg-white/5 rounded-md shadow-inner" onClick={() => {
+                                            dispatch(getCategory("CelebratiesSouth"));
+                                        }}>
+                                            <img src="/Images/film.png" className="w-6 h-6" alt="resetThread"></img>
+                                            <h1>South Actors</h1>
+                                        </div>
+                                    </NavLink>
+
+                                </div>
+                            }
+                        </div>
+
+                        {/* </NavLink> */}
 
                         <NavLink to="/avatarGPT/sports"><div className="flex flex-row gap-x-6 w-full px-4 py-3 items-center border border-white/30 hover:cursor-pointer transition ease-in-out duration-300 hover:bg-white/5 rounded-md shadow-inner"
                             onClick={() => {
@@ -60,12 +107,21 @@ const TemplateAside = () => {
                             <h1>Sports</h1>
                         </div></NavLink>
 
+                        <NavLink to="/avatarGPT/historyPeople"><div className="flex flex-row gap-x-6 w-full px-4 py-3 items-center border border-white/30 hover:cursor-pointer transition ease-in-out duration-300 hover:bg-white/5 rounded-md shadow-inner"
+                            onClick={() => {
+                                dispatch(getCategory("HistoryPeople"));
+                            }}>
+
+                            <img src="/Images/ball.png" className="w-6 h-6" alt="resetThread"></img>
+                            <h1>Inventors & History Persons</h1>
+                        </div></NavLink>
+
                         <NavLink to="/avatarGPT/influencers"><div className="flex flex-row gap-x-6 w-full px-4 py-3 items-center border border-white/30 shadow-inner rounded-md hover:cursor-pointer hover:bg-white/5 transition ease-in-out duration-300">
                             <img src="/Images/share.png" className="w-6 h-6" alt="resetThread"></img>
                             <h1>Influencers</h1>
                         </div></NavLink>
 
-                        <NavLink to="/avatarGPT/authors"><div className="flex flex-row gap-x-6 w-full px-4 py-3 items-center border border-white/30 hover:cursor-pointer hover:bg-white/5 transition ease-in-out duration-300 shadow-inner ru</NavLink>nded-md">
+                        <NavLink to="/avatarGPT/authors"><div className="flex flex-row gap-x-6 w-full px-4 py-3 items-center border border-white/30 hover:cursor-pointer hover:bg-white/5 transition ease-in-out duration-300 shadow-inner rounded-md">
                             <img src="/Images/logout.png" className="w-6 h-6" alt="resetThread"></img>
                             <h1>Authors</h1>
                         </div></NavLink>

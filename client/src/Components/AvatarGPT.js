@@ -46,7 +46,7 @@ const AvatarGPT = () => {
                             <h1 className="text-xl leading-relaxed text-black/80">Experience the thrill of direct interaction as you chat with your stars and ask them anything you want - <span className="font-bold">With No Limits or Boundaries!</span><br></br>
                                 Real Talk: No Limits, No Filters, Just You and Your Fave Celebs</h1>
 
-                            <button type="button" className="bg-red-500 px-8 w-fit py-2 rounded-md text-white font-bold text-xl">Get Started <span className="ml-2 text-xl">↗️</span></button>
+                            <a href="/avatarGPT/categoryList"><button type="button" className="bg-red-500 px-8 w-fit py-2 rounded-md text-white font-bold text-xl">Get Started <span className="ml-2 text-xl">↗️</span></button></a>
 
                         </div>
 
