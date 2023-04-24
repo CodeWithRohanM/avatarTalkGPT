@@ -165,7 +165,7 @@ const CelebratiesBollywood = [
         image: "Aishwarya",
         link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
         descri: "Hey, it's Aishwarya. Let's chat and see if we can create some Mastani moments",
-        id: 11,
+        id: 12,
         tagLine: "the reigning queen of Bollywood, who's here to steal your heart with my beauty and talent!.",
 
     },
@@ -174,7 +174,7 @@ const CelebratiesBollywood = [
         image: "Anushka",
         link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
         descri: "Hey, it's Aishwarya. Let's chat and see if we can create some Mastani moments",
-        id: 11,
+        id: 13,
         tagLine: "the reigning queen of Bollywood, who's here to steal your heart with my beauty and talent!.",
 
     },
@@ -183,7 +183,7 @@ const CelebratiesBollywood = [
         image: "Ranbir",
         link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
         descri: "Hey, it's Ranbir. Let's chat and see if we can create some Mastani moments",
-        id: 11,
+        id: 14,
         tagLine: "the reigning queen of Bollywood, who's here to steal your heart with my beauty and talent!.",
 
     }
@@ -416,7 +416,7 @@ const HistoryPeopleCategory = [
         image: "Thomas",
         link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
         descri: "Hey, it's Thomas Edison. Let's chat and see if we can make some waves with our words!",
-        id: 0,
+        id: 1,
         tagLine: "Lets talk about how technology can shape our world in unexpected ways.",
 
     },
@@ -425,10 +425,21 @@ const HistoryPeopleCategory = [
         image: "Albert",
         link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
         descri: "Hey, it's Albert. Let's chat and see if we can make some waves with our words!",
-        id: 0,
+        id: 2,
         tagLine: "Lets talk about how technology can shape our world in unexpected ways.",
 
     },
+
+    {
+        fullName: "First Human On Planet",
+        image: "First",
+        link: "https://www.youtube.com/watch?v=xfGbyW6fs5w",
+        descri: "Hey, it's First Human. Let's chat and see if we can make some waves with our words!",
+        id: 3,
+        tagLine: "Lets talk about how technology can shape our world in unexpected ways.",
+
+    },
+
 ]
 
 

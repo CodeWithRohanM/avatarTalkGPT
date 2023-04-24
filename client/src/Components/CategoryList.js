@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import { NavLink } from "react-router-dom";
 import TemplateAside from "./TemplateAside";
@@ -6,6 +6,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCategory } from "../Actions/userActions";
 
 const CategoryList = () => {
+
+    const [categoriesStatus, setCategoriesStatus] = useState(false);
+
+    const [celebratiesTypeStatus, setCelebratiesTypeStatus] = useState(false);
+
+    const [getBorderWidth, setGetBorderWidth] = useState("");
 
     const dispatch = useDispatch();
 
@@ -27,7 +33,7 @@ const CategoryList = () => {
 
                         <div className="grid grid-cols-3 gap-x-4 gap-y-16 w-full h-fit">
 
-                            <NavLink to="/avatarGPT/business">
+                            <a href="/avatarGPT/business">
                                 <div className="flex flex-row gap-x-6 w-full text-2xl font-bold tracking-wider px-4 py-3 border-4 border-white/50 hover:bg-white/5 hover:cursor-pointer transition ease-in-out duration-300 rounded-md shadow-inner items-center"
                                     onClick={() => {
                                         dispatch(getCategory("Business"));
@@ -35,33 +41,76 @@ const CategoryList = () => {
 
                                     <img src="/Images/innovation.png" className="w-8 h-8" alt="resetThread"></img>
                                     <h1>Business</h1>
-                                </div></NavLink>
+                                </div></a>
 
-                            <NavLink to="/avatarGPT/celebraties"><div className="flex flex-row gap-x-6 w-full px-4 py-3 items-center border-4 border-white/50 hover:cursor-pointer transition ease-in-out duration-300 hover:bg-white/5 rounded-md shadow-inner font-bold tracking-wider text-2xl" onClick={() => {
-                                dispatch(getCategory("Celebraties"));
-                            }}>
-                                <img src="/Images/film.png" className="w-8 h-8" alt="resetThread"></img>
-                                <h1>Celebraties</h1>
-                            </div></NavLink>
 
-                            <NavLink to="/avatarGPT/sports"><div className="flex flex-row gap-x-6 w-full px-4 py-3 items-center border-4 border-white/50 hover:cursor-pointer transition ease-in-out duration-300 hover:bg-white/5 rounded-md shadow-inner font-bold tracking-wider text-2xl"
+
+                            <div className={`flex flex-col ${getBorderWidth} w-full`}>
+                                <div className="flex flex-row gap-x-6 w-full text-2xl font-bold tracking-wider px-4 py-3 items-center 
+                                border-4 border-white/50 hover:cursor-pointer transition ease-in-out duration-300 hover:bg-white/5 rounded-md shadow-inner" onClick={() => {
+                                    // dispatch(getCategory("Celebraties"));
+                                    setCelebratiesTypeStatus(!celebratiesTypeStatus);
+                                    setGetBorderWidth((getBorderWidth) => celebratiesTypeStatus ? "" : "border-4 rounded-t-xl rounded-lg border-white/50");
+                                    console.log(celebratiesTypeStatus);
+                                }}>
+                                    <img src="/Images/film.png" className="w-6 h-6" alt="resetThread"></img>
+                                    <h1>Celebraties</h1>
+                                </div>
+
+
+                                {
+
+                                    celebratiesTypeStatus && <div className="flex flex-col gap-y-3 w-full p-4" id="celebratiesTypes">
+
+                                        <a href="/avatarGPT/celebratiesBollywood">
+                                            <div className="flex flex-row gap-x-6 w-full px-4 py-3 text-xl font-bold tracking-wider items-center border-4 border-white/30 hover:cursor-pointer transition ease-in-out duration-300 hover:bg-white/5 rounded-md shadow-inner" onClick={() => {
+                                                dispatch(getCategory("CelebratiesBollywood"));
+                                            }}>
+                                                <img src="/Images/film.png" className="w-6 h-6" alt="resetThread"></img>
+                                                <h1>Bollywood</h1>
+                                            </div>
+                                        </a>
+
+                                        <a href="/avatarGPT/celebratiesHollywood">
+                                            <div className="flex flex-row gap-x-6 w-full px-4 py-3 text-xl font-bold tracking-wider items-center border-4 border-white/30 hover:cursor-pointer transition ease-in-out duration-300 hover:bg-white/5 rounded-md shadow-inner" onClick={() => {
+                                                dispatch(getCategory("CelebratiesHollywood"));
+                                            }}>
+                                                <img src="/Images/film.png" className="w-6 h-6" alt="resetThread"></img>
+                                                <h1>Hollywood</h1>
+                                            </div>
+                                        </a>
+
+                                        <a href="/avatarGPT/celebraties">
+                                            <div className="flex flex-row gap-x-6 w-full px-4 py-3 text-xl font-bold tracking-wider items-center border-4 border-white/30 hover:cursor-pointer transition ease-in-out duration-300 hover:bg-white/5 rounded-md shadow-inner" onClick={() => {
+                                                dispatch(getCategory("CelebratiesSouth"));
+                                            }}>
+                                                <img src="/Images/film.png" className="w-6 h-6" alt="resetThread"></img>
+                                                <h1>South Actors</h1>
+                                            </div>
+                                        </a>
+
+                                    </div>
+                                }
+                            </div>
+
+                            <a href="/avatarGPT/sports"><div className="flex flex-row gap-x-6 w-full px-4 py-3 items-center border-4 border-white/50 hover:cursor-pointer transition ease-in-out duration-300 hover:bg-white/5 rounded-md shadow-inner font-bold tracking-wider text-2xl"
                                 onClick={() => {
                                     dispatch(getCategory("Sports"));
                                 }}>
 
                                 <img src="/Images/ball.png" className="w-8 h-8" alt="resetThread"></img>
                                 <h1>Sports</h1>
-                            </div></NavLink>
+                            </div></a>
 
-                            <NavLink to="/avatarGPT/influencers"><div className="flex flex-row gap-x-6 w-full px-4 py-3 items-center border-4 border-white/50 shadow-inner font-bold tracking-wider text-2xl rounded-md hover:cursor-pointer hover:bg-white/5 transition ease-in-out duration-300">
+                            <a href="/avatarGPT/influencers"><div className="flex flex-row gap-x-6 w-full px-4 py-3 items-center border-4 border-white/50 shadow-inner font-bold tracking-wider text-2xl rounded-md hover:cursor-pointer hover:bg-white/5 transition ease-in-out duration-300">
                                 <img src="/Images/share.png" className="w-8 h-8" alt="resetThread"></img>
                                 <h1>Influencers</h1>
-                            </div></NavLink>
+                            </div></a>
 
-                            <NavLink to="/avatarGPT/authors"><div className="flex flex-row gap-x-6 w-full px-4 py-3 items-center border-4 border-white/50 hover:cursor-pointer hover:bg-white/5 transition ease-in-out duration-300 shadow-inner font-bold tracking-wider text-2xl rounded-md">
+                            <a href="/avatarGPT/authors"><div className="flex flex-row gap-x-6 w-full px-4 py-3 items-center border-4 border-white/50 hover:cursor-pointer hover:bg-white/5 transition ease-in-out duration-300 shadow-inner font-bold tracking-wider text-2xl rounded-md">
                                 <img src="/Images/logout.png" className="w-8 h-8" alt="resetThread"></img>
                                 <h1>Authors</h1>
-                            </div></NavLink>
+                            </div></a>
                         </div>
 
                         <div className="flex w-full h-5/6 rounded-r-lg justify-center">
